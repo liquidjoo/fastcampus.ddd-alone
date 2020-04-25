@@ -6,7 +6,11 @@ public class Pokemon {
     private final String name;
 
     public Pokemon(final int pokedexNumber, final String name) {
-        this.pokedexNumber = new PokedexNumber(pokedexNumber);
+        this(new PokedexNumber(pokedexNumber), name);
+    }
+
+    public Pokemon(final PokedexNumber pokedexNumber, final String name) {
+        this.pokedexNumber = pokedexNumber;
         this.name = name;
     }
 }
