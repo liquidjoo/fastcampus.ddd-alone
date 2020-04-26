@@ -21,4 +21,10 @@ public class PokemonController {
                 .body(pokemonService.get(number))
                 ;
     }
+
+    @GetMapping("/api/pokemons/{number}/capture-by/{id}")
+    public void capture(@PathVariable final int number, @PathVariable final String id) {
+        pokemonService.capture(id, number);
+    }
+
 }
