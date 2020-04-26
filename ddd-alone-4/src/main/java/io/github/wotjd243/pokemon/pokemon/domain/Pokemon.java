@@ -3,27 +3,30 @@ package io.github.wotjd243.pokemon.pokemon.domain;
 import java.util.Objects;
 
 public class Pokemon {
-    private final int MIN_CAPTURE_RATE = 1;
-    private final int MAX_CAPTURE_RATE = 255;
-
-    private final PokedexNumber pokedexNumber;
+    private final NationalPokedexNumber number;
     private final String name;
-    private final int captureRate;
+    private final CaptureRate captureRate;
 
-    public Pokemon(final int pokedexNumber, final String name, int captureRate) {
-        this(new PokedexNumber(pokedexNumber), name, captureRate);
+    public Pokemon(final int number, final String name, final int captureRate) {
+        this(NationalPokedexNumber.valueOf(number), name, CaptureRate.valueOf(captureRate));
     }
-    public Pokemon(final PokedexNumber pokedexNumber, final String name, final int captureRate) {
-        captureValidate(captureRate);
-        this.pokedexNumber = pokedexNumber;
+
+    public Pokemon(final NationalPokedexNumber number, final String name, final CaptureRate captureRate) {
+        this.number = number;
         this.name = name;
         this.captureRate = captureRate;
     }
 
-    private void captureValidate(int captureRate) {
-        if (captureRate < 1 || captureRate > 255) {
-            throw new IllegalArgumentException();
-        }
+    public int getNumber() {
+        return number.toInt();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCaptureRate() {
+        return captureRate.toInt();
     }
 
     @Override
@@ -31,11 +34,11 @@ public class Pokemon {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final Pokemon pokemon = (Pokemon) o;
-        return Objects.equals(pokedexNumber, pokemon.pokedexNumber);
+        return number.equals(pokemon.number);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pokedexNumber);
+        return Objects.hash(number);
     }
 }

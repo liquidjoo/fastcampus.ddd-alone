@@ -12,12 +12,13 @@ class PokemonTest {
     @Test
     @DisplayName("포켓몬 생성")
     void createByPokemon() {
-        new Pokemon(1, "꼬부기", 12);
+        new Pokemon(1, "꼬부기", 45);
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {-1, 0, 256})
-    void pockmonCaptureRateByRateOver(int rate) {
-        assertThatIllegalArgumentException().isThrownBy(() -> new Pokemon(1, "꼬부기", rate));
+    @ValueSource(ints = {-1, 0, 152})
+    @DisplayName("PokedexNumber는 1부터 151까지다")
+    void pokemonValidateByPokedexNumberOver(int value) {
+        assertThatIllegalArgumentException().isThrownBy(() -> new Pokemon(value, "롱롱스톤", 1));
     }
 }
