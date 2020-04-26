@@ -8,8 +8,6 @@ import io.github.wotjd243.pokemon.trainer.domain.Trainer;
 import io.github.wotjd243.pokemon.trainer.domain.TrainerRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class PokemonService {
     private final PokemonRepository pokemonRepository;
