@@ -34,5 +34,18 @@
 | 포획률 | Capture rate | 야생 포켓몬에게 몬스터볼을 던졌을 때, 그 포켓몬을 잡을 확률에 영향을 주는 수치이다. 모든 포켓몬은 3부터 255사이의 포획률이 정해져 있으며, 이 포획률이 낮을수록 잡기 어렵고, 높을수록 잡기 쉬워진다. |
 
 ## 모델링
+아이템
+- `MonsterBall` 은 이름과 보정값을 가진다.
 
-- 
+포켓몬
+- `PoketMon` 은 `PokedexNumber`와 포획률, 이름, 닉네임을 가진다.
+- `PokedexNumber`는 1부터 151까지다.
+
+트레이너
+- `Trainer`는 아이디, 레벨, `Items` 와 `PocketMons` 를 가진다.
+- `Trainer` 생성 시 한마리의 `PoketMon` 이 생성된다.
+- 생성될 때 `PoketMon`은 이상해씨, 파이리, 꼬부기 중 한 마리를 생성할 수 있다.
+- `Trainer` 는 `Item` 의 `MonsterBall`을 사용해 `PokerMon`을 가질 수 있다.
+- `Trainer` 의 레벨은 `PoketMons`의 사이즈와 동일하며 최대값은 30 이다.
+
+ 

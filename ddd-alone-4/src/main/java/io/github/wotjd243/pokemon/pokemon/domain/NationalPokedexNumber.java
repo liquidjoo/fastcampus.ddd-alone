@@ -17,7 +17,7 @@ public class NationalPokedexNumber {
         this.number = number;
     }
 
-    static NationalPokedexNumber valueOf(final int number) {
+    public static NationalPokedexNumber valueOf(final int number) {
         cached.putIfAbsent(number, new NationalPokedexNumber(number));
         return cached.get(number);
     }
