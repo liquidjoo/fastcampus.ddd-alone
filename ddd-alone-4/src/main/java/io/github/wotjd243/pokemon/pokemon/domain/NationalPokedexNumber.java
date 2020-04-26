@@ -22,7 +22,7 @@ public class NationalPokedexNumber {
         return cached.get(number);
     }
 
-    int toInt() {
+    public int toInt() {
         return number;
     }
 
